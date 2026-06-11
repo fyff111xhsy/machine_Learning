@@ -341,7 +341,7 @@ class mySVM(object):
 if __name__ == '__main__':
     clf = mySVM(C=10000)
 
-    path = r'data\watermelon3_0a_Ch.txt'
+    path = r'.\datasets\watermelon3_0a_Ch.txt'
     data = pd.read_table(path, delimiter=' ', dtype=float)
 
     X = data.iloc[:, [0, 1]].values

@@ -42,4 +42,26 @@ class KNN:
         # 返回出现次数最多的标签
         most_common = Counter(k_nearest_labels).most_common(1)
         return most_common[0][0]
+    
+# 示例使用
+if __name__ == "__main__":
+    from sklearn.datasets import load_iris
+    from sklearn.model_selection import train_test_split
 
+    # 加载数据集
+    iris = load_iris()
+    X, y = iris.data, iris.target
+
+    # 划分训练集和测试集
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # 创建KNN模型并训练
+    knn = KNN(k=3)
+    knn.fit(X_train, y_train)
+
+    # 进行预测
+    predictions = knn.predict(X_test)
+
+    # 输出预测结果
+    print("Predictions:", predictions)
+    print("True Labels:", y_test)
